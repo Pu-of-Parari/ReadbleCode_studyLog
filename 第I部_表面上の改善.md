@@ -22,7 +22,7 @@
 
 - メソッドの悪い例：
 
-  ```
+  ```python
   def GetPage(url):
   	・・・
   ```
@@ -31,7 +31,7 @@
 
 - BinaryTreeクラスの悪い例：
 
-  ```
+  ```c++
   class BinaryTree {
   	int Size();
   	・・・
@@ -42,7 +42,7 @@
 
 - Threadクラスの悪い例：
 
-  ```
+  ```c++
   class Thread {
   	void Stop();
   	・・・
@@ -81,7 +81,7 @@ tmp・retval・fooのような名前を付けるのは、「名前のことな�
 
   2つの変数をスワップする古典的な操作を考える
 
-  ```
+  ```c++
   if (right < left) {
   	tmp = right;
   	right = left;
@@ -95,7 +95,7 @@ tmp・retval・fooのような名前を付けるのは、「名前のことな�
 
 - 汎用的な名前をうまく使えていない例：
 
-  ```
+  ```c++
   String tmp = user.name();
   tmp += " " + user.phone_number();
   tmp += " " + user.email();
@@ -119,11 +119,11 @@ tmp・retval・fooのような名前を付けるのは、「名前のことな�
 
   クラブに所属しているユーザを調べるループを考える
 
-  ```
-  for (int i = 0; i < clubs.size(); i++)
-  	for (int j = 0; j < clubs[i].members.size(); j++)
-  		for (int k = 0; k < users.size(); k++)
-  			if (clubs[i].members[k] == users[j])
+  ```python
+  for (int i = 0; i < clubs.size(); i++):
+  	for (int j = 0; j < clubs[i].members.size(); j++):
+  		for (int k = 0; k < users.size(); k++):
+  			if (clubs[i].members[k] == users[j]):
   				・・・
   ```
 
@@ -131,7 +131,7 @@ tmp・retval・fooのような名前を付けるのは、「名前のことな�
 
   イテレータが複数あるときには、インデックスも明確な名前をつけるとよい。i, j, kではなく`club_i`、`members_i`, `users_i`など。もっと簡潔に、`ci`、`mi`,`ui`でもよい。こうすることでバグが見つけやすくなる。
 
-  ```
+  ```python
   if (clubs[ci].members[ui] == users[mi]) ## 最初の文字が一致していないからおかしい！
   if (clubs[ci].members[mi] == users[ui]) ## 最初の文字が一致しているから問題ない！
   ```
@@ -191,7 +191,7 @@ tmp・retval・fooのような名前を付けるのは、「名前のことな�
 
 識別子の「スコープ」(その名前が「見える」コードの行数)が小さければ多くの情報を詰め込む必要はない。
 
-```
+```c++
 if (debug) {
 	map<string,int> m;
 	LookUpNamesNumbers(&m);
@@ -203,7 +203,7 @@ if (debug) {
 
 `m`がクラスのメンバ変数やグローバル変数の場合
 
-```
+```javascript
 LookUpNamesNumbers(&m);
 Print(m);
 ```
@@ -270,7 +270,7 @@ Print(m);
 
 - 危険な例
 
-  ```
+  ```c++
   bool read_password = true;
   ```
 
@@ -369,7 +369,7 @@ Print(m);
 
 - 例: `CheckfullName`メソッドを定義
 
-  ```
+  ```python
   def CheckFullName(partial_name, expected_full_name, expected_error):
   	full_name = ExpandFullName(database_connection, partial_name, &error)
   	assert(error == expected_error)
@@ -391,12 +391,12 @@ Print(m);
 
 スペースを適宜用いることで文章に目を通しやすくなる。
 
-```
+```python
 CheckFullName("Doug Adams", "Mr. Douglas Adams", "")
 CheckFullName("John"      , ""                 , "more than one result")
 ```
 
-```
+```python
 details  = request.POST.get('details')
 location = request.POST.get('location')
 phone    = equest.POST.get('phone')
@@ -413,7 +413,7 @@ email    = request.POST.get('email')
 
 コードの並びがコードの動作に影響を及ぼすことは少ない。例えば、以下はどんな順番でも問題ない。
 
-```
+```python
 details  = request.POST.get('details')
 location = request.POST.get('location')
 phone    = equest.POST.get('phone')
@@ -435,7 +435,7 @@ email    = request.POST.get('email')
 
 コードの概要を素早く把握してもらうにはグループや階層を１つの「単位」にまとめてしまえばよい。
 
-```
+```c++
 class FrontendServer{
 	public:
 		FrontendServer();
